@@ -43,6 +43,8 @@ class Test_Forget_Pass_LoginPageActions:
             reset_pass = self.driver.find_element(By.XPATH, self.forgotpasslocator.reset_pass_button)
             reset_pass.click()
             sleep(3)
+
+            print("Reset password link sent successfully")
         except NoSuchElementException:
             print('Element Missing')
 

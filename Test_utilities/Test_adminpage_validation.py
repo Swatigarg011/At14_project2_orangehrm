@@ -32,7 +32,9 @@ class Test_admin_PageActions:
 
     def test_adminpage_validate(self, browser):
         try:
+            #launching to OrangeHRM website
             self.driver.get(credentials.url)
+            #create a login
             username = self.wait.until(EC.presence_of_element_located((By.NAME, self.loginlocators.username_locator)))
             # self.action.move_to_element(username.click(username).perform())
             username.send_keys(credentials.username)
@@ -45,46 +47,54 @@ class Test_admin_PageActions:
             login_button.click()
             sleep(3)
 
+            #clicking on admin page menu
             admin_tab = self.driver.find_element(By.XPATH,self.adminpagelocator.admin_tab_locator)
             admin_tab.click()
             sleep(3)
 
-            user_manegment_tab = self.driver.find_element(By.XPATH,self.adminpagelocator.user_mange_tab_locator)
-            self.action.move_to_element(user_manegment_tab).perform()
+            # validating user management tab
+            user_management_tab = self.driver.find_element(By.XPATH,self.adminpagelocator.user_mange_tab_locator)
+            self.action.move_to_element(user_management_tab).perform()
             if self.driver.find_element(By.XPATH,self.adminpagelocator.user_mange_tab_locator).is_displayed():
                 print("User management element is validated")
             sleep(2)
 
+            # validating Job tab
             Job_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.job_tab_locator)
             self.action.move_to_element(Job_tab).perform()
             if self.driver.find_element(By.XPATH,self.adminpagelocator.job_tab_locator).is_displayed():
                 print("JOB element is validated")
             sleep(2)
 
+            # validating user Organization tab
             organization_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.organization_tab_locator)
             self.action.move_to_element(organization_tab).perform()
             if self.driver.find_element(By.XPATH,self.adminpagelocator.organization_tab_locator).is_displayed():
                 print("Organization Tab element is validated")
             sleep(2)
 
+            # validating Qualification tab
             Qualification_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.Qualification_tab_locator)
             self.action.move_to_element(Qualification_tab).perform()
             if self.driver.find_element(By.XPATH, self.adminpagelocator.Qualification_tab_locator).is_displayed():
                 print("Qualification Tab is validated")
             sleep(2)
 
+            # validating Nationality tab
             nationality_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.nationality_tab_locator)
             self.action.move_to_element(nationality_tab).perform()
             if self.driver.find_element(By.XPATH, self.adminpagelocator.nationality_tab_locator).is_displayed():
                 print("Nationality tab is validated")
             sleep(2)
 
+            # validating Corporation branding tab
             corp_branding_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.corp_branding_tab_locator)
             self.action.move_to_element(corp_branding_tab).perform()
             if self.driver.find_element(By.XPATH, self.adminpagelocator.corp_branding_tab_locator).is_displayed():
                 print("Corporating Branding Tab is validated")
             sleep(2)
 
+            # validating configuration tab
             configuration_tab = self.driver.find_element(By.XPATH, self.adminpagelocator.configuration_tab_locator)
             self.action.move_to_element(configuration_tab).perform()
             if self.driver.find_element(By.XPATH, self.adminpagelocator.configuration_tab_locator).is_displayed():
